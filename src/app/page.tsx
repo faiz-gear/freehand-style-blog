@@ -1,37 +1,78 @@
 import Link from "next/link";
+import PageContainer from "~/components/shared/PageContainer";
+import PageHeader from "~/components/shared/PageHeader";
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-          Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-        </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
+    <PageContainer>
+      <PageHeader
+        title="欢迎来到我的手绘风格博客"
+        description="这是一个关于编程、设计与生活的手绘风格博客，记录我的学习和思考。"
+      />
+
+      <section className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <FeaturedCard
+          title="关于我"
+          description="了解更多关于我的经历、技能和兴趣。"
+          href="/about"
+          className="rotate-hand-slight-left"
+        />
+        <FeaturedCard
+          title="技能"
+          description="我的技术栈和专业领域。"
+          href="/skills"
+          className="rotate-hand-slight-right"
+        />
+        <FeaturedCard
+          title="项目"
+          description="查看我的最新项目和作品集。"
+          href="/projects"
+        />
+      </section>
+
+      <section className="mt-16">
+        <div className="mb-6 flex items-center justify-between">
+          <h2 className="pencil-line-animation">最新文章</h2>
           <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/usage/first-steps"
-            target="_blank"
+            href="/blog"
+            className="underline-hand hover:text-ink-accent transition-colors"
           >
-            <h3 className="text-2xl font-bold">First Steps →</h3>
-            <div className="text-lg">
-              Just the basics - Everything you need to know to set up your
-              database and authentication.
-            </div>
-          </Link>
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/introduction"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">Documentation →</h3>
-            <div className="text-lg">
-              Learn more about Create T3 App, the libraries it uses, and how to
-              deploy it.
-            </div>
+            查看所有文章
           </Link>
         </div>
+        <div className="divider-hand mb-8"></div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          <p className="text-ink-secondary mt-12 text-center italic">
+            博客文章即将上线，敬请期待...
+          </p>
+        </div>
+      </section>
+    </PageContainer>
+  );
+}
+
+interface FeaturedCardProps {
+  title: string;
+  description: string;
+  href: string;
+  className?: string;
+}
+
+function FeaturedCard({
+  title,
+  description,
+  href,
+  className = "",
+}: FeaturedCardProps) {
+  return (
+    <Link href={href}>
+      <div
+        className={`border-ink-primary hover:border-ink-accent hover:bg-paper-secondary rounded-lg border-2 border-dashed p-6 transition-all ${className}`}
+      >
+        <h3 className="pencil-line-animation mb-2">{title}</h3>
+        <p className="text-ink-secondary">{description}</p>
       </div>
-    </main>
+    </Link>
   );
 }

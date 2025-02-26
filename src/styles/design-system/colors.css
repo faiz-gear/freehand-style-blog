@@ -1,0 +1,85 @@
+/* 
+ * 手绘风格博客颜色系统
+ * 使用柔和的水彩和纸张风格颜色，以营造手绘感觉
+ */
+
+:root {
+  /* 主色调 - 模拟纸张和水彩效果 */
+  --color-paper-primary: #f8f5e6; /* 淡米黄色，基础纸张色 */
+  --color-paper-secondary: #eae6d7; /* 稍微深一点的纸张色，用于区分区域 */
+  --color-paper-tertiary: #ddd8c4; /* 更深的纸张色，用于强调区域 */
+
+  /* 墨水色调 - 模拟手写笔迹 */
+  --color-ink-primary: #333333; /* 主要墨水色，用于文本 */
+  --color-ink-secondary: #555555; /* 次要墨水色，用于副标题等 */
+  --color-ink-light: #777777; /* 淡墨水色，用于次要信息 */
+
+  /* 强调色 - 水彩风格的点缀颜色 */
+  --color-accent-blue: #7ba7bc; /* 水彩蓝，主要强调色 */
+  --color-accent-blue-light: #a8c5d6; /* 淡水彩蓝，次要强调色 */
+  --color-accent-blue-dark: #5a8ca3; /* 深水彩蓝，hover状态等 */
+
+  --color-accent-red: #d88373; /* 水彩红，用于警告或特殊强调 */
+  --color-accent-red-light: #e6a599; /* 淡水彩红 */
+  --color-accent-red-dark: #c0655a; /* 深水彩红 */
+
+  --color-accent-green: #8cb9a3; /* 水彩绿，用于成功状态 */
+  --color-accent-green-light: #b0d1c3; /* 淡水彩绿 */
+  --color-accent-green-dark: #669981; /* 深水彩绿 */
+
+  --color-accent-yellow: #e6c87c; /* 水彩黄，用于提示或高亮 */
+  --color-accent-yellow-light: #eed9a8; /* 淡水彩黄 */
+  --color-accent-yellow-dark: #d1af58; /* 深水彩黄 */
+
+  /* 背景色 - 模拟纸张纹理和水彩晕染 */
+  --color-bg-primary: var(--color-paper-primary);
+  --color-bg-secondary: var(--color-paper-secondary);
+  --color-bg-tertiary: var(--color-paper-tertiary);
+
+  /* 边框色 - 模拟手绘线条 */
+  --color-border-primary: var(--color-ink-primary);
+  --color-border-secondary: var(--color-ink-secondary);
+  --color-border-light: var(--color-ink-light);
+
+  /* 状态颜色 */
+  --color-success: var(--color-accent-green);
+  --color-warning: var(--color-accent-yellow);
+  --color-error: var(--color-accent-red);
+  --color-info: var(--color-accent-blue);
+
+  /* 阴影色 - 柔和的水彩感阴影 */
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow-dark: rgba(0, 0, 0, 0.2);
+}
+
+/* 深色模式颜色 - 模拟夜间手绘效果 */
+.dark-mode {
+  --color-paper-primary: #2a2a2c; /* 深色纸张背景 */
+  --color-paper-secondary: #333336; /* 深色次要背景 */
+  --color-paper-tertiary: #3d3d40; /* 深色强调背景 */
+
+  --color-ink-primary: #e0dfd8; /* 浅色墨水，主文本 */
+  --color-ink-secondary: #c5c4be; /* 浅色次要墨水 */
+  --color-ink-light: #a8a7a2; /* 浅色淡墨水 */
+
+  /* 深色模式下的强调色 - 稍微亮一些的水彩色 */
+  --color-accent-blue: #8bb8cd; /* 更亮的水彩蓝 */
+  --color-accent-blue-light: #a8c5d6;
+  --color-accent-blue-dark: #6a9cb3;
+
+  --color-accent-red: #e89485;
+  --color-accent-red-light: #f6b5a9;
+  --color-accent-red-dark: #d0756a;
+
+  --color-accent-green: #9ccab4;
+  --color-accent-green-light: #c0e2d3;
+  --color-accent-green-dark: #7caa94;
+
+  --color-accent-yellow: #f6d88c;
+  --color-accent-yellow-light: #fee9b8;
+  --color-accent-yellow-dark: #e6bf68;
+
+  /* 深色模式阴影 */
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  --color-shadow-dark: rgba(0, 0, 0, 0.5);
+}

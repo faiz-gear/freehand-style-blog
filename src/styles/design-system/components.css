@@ -1,0 +1,288 @@
+/* 
+ * 手绘风格博客UI组件样式
+ * 设计不规则边框、手绘风格元素
+ */
+
+/* 手绘按钮 */
+.btn-hand {
+  font-family: var(--font-handwriting-casual);
+  background-color: var(--color-paper-secondary);
+  color: var(--color-ink-primary);
+  padding: 0.5rem 1.25rem;
+  border: 2px solid var(--color-ink-primary);
+  border-radius: 8px;
+  position: relative;
+  /* 按钮倾斜，增加手工感 */
+  transform: rotate(-0.5deg);
+  transition: all 0.2s ease;
+}
+
+/* 不对称的边框效果 */
+.btn-hand:before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid var(--color-ink-primary);
+  border-radius: 8px;
+  /* 稍微偏移的边框，增加手绘感觉 */
+  transform: translate(3px, 3px);
+  z-index: -1;
+}
+
+.btn-hand:hover {
+  transform: rotate(0.5deg) scale(1.03);
+  background-color: var(--color-accent-blue-light);
+}
+
+.btn-hand:active {
+  transform: rotate(-0.25deg) scale(0.98);
+}
+
+/* 主要按钮 */
+.btn-hand-primary {
+  background-color: var(--color-accent-blue);
+  color: white;
+}
+
+/* 次要按钮 */
+.btn-hand-secondary {
+  background-color: var(--color-paper-tertiary);
+}
+
+/* 危险按钮 */
+.btn-hand-danger {
+  background-color: var(--color-accent-red);
+  color: white;
+}
+
+/* 手绘卡片 */
+.card-hand {
+  background-color: var(--color-paper-primary);
+  border: 2px solid var(--color-ink-primary);
+  border-radius: 8px;
+  padding: 1.5rem;
+  position: relative;
+  /* 卡片略微旋转，增加手绘感 */
+  transform: rotate(0.5deg);
+  /* 手绘风格阴影 */
+  box-shadow: 3px 3px 0 var(--color-shadow);
+  transition: all 0.3s ease;
+}
+
+.card-hand:hover {
+  transform: rotate(-0.25deg) translateY(-3px);
+  box-shadow: 5px 5px 0 var(--color-shadow);
+}
+
+/* 铅笔风格卡片 */
+.card-hand-pencil {
+  border: 2px dashed var(--color-ink-secondary);
+}
+
+/* 水彩风格卡片 */
+.card-hand-watercolor {
+  background-image: linear-gradient(
+    45deg,
+    var(--color-paper-primary) 85%,
+    var(--color-accent-blue-light) 100%
+  );
+  border: none;
+  /* 不规则边缘模拟水彩效果 */
+  border-radius: 12px 5px 15px 8px;
+}
+
+/* 手绘输入框 */
+.input-hand {
+  font-family: var(--font-handwriting-body);
+  background-color: var(--color-paper-primary);
+  border: 2px solid var(--color-ink-secondary);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  /* 略微倾斜，增加手写感 */
+  transform: rotate(-0.25deg);
+  transition: all 0.2s ease;
+}
+
+.input-hand:focus {
+  outline: none;
+  border-color: var(--color-accent-blue);
+  transform: rotate(0.25deg);
+  box-shadow: 2px 2px 0 var(--color-shadow);
+}
+
+/* 手绘复选框 */
+.checkbox-hand {
+  position: relative;
+  padding-left: 2rem;
+  cursor: pointer;
+  font-family: var(--font-handwriting-body);
+}
+
+.checkbox-hand input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-hand .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: var(--color-paper-primary);
+  border: 2px solid var(--color-ink-primary);
+  /* 边框略微不规则 */
+  border-radius: 4px 2px 5px 3px;
+}
+
+.checkbox-hand input:checked ~ .checkmark:after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--color-ink-primary);
+  border-width: 0 2px 2px 0;
+  /* 手绘风格的对号 */
+  transform: rotate(45deg);
+}
+
+/* 分隔线 - 手绘风格 */
+.divider-hand {
+  height: 2px;
+  background-color: transparent;
+  /* 使用SVG波浪线作为背景 */
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='10' viewBox='0 0 100 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0,5 C 20,2 20,8 40,5 C 60,2 60,8 80,5 C 100,2 100,8 120,5' stroke='%23333' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  margin: 1.5rem 0;
+}
+
+/* 徽章 - 手绘风格 */
+.badge-hand {
+  display: inline-block;
+  font-family: var(--font-handwriting-casual);
+  font-size: var(--font-size-xs);
+  background-color: var(--color-accent-yellow-light);
+  color: var(--color-ink-primary);
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--color-ink-primary);
+  /* 不规则边缘 */
+  border-radius: 12px 3px 10px 4px;
+  transform: rotate(-1deg);
+}
+
+/* 导航链接 - 手绘风格 */
+.nav-hand {
+  font-family: var(--font-handwriting-casual);
+  color: var(--color-ink-primary);
+  text-decoration: none;
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+.nav-hand::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  /* 手绘风格的下划线 */
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='4' viewBox='0 0 40 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0,3 C 10,1 5,3 20,2 C 30,1 35,3 40,2' stroke='%23333' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  opacity: 0;
+  transform: translateY(3px);
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+
+.nav-hand:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 警告框 - 手绘风格 */
+.alert-hand {
+  font-family: var(--font-handwriting-body);
+  background-color: var(--color-paper-secondary);
+  border: 2px solid var(--color-ink-primary);
+  border-radius: 10px 5px 8px 10px;
+  /* 略微旋转 */
+  transform: rotate(-0.3deg);
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.alert-hand-info {
+  background-color: var(--color-accent-blue-light);
+  border-color: var(--color-accent-blue);
+}
+
+.alert-hand-warning {
+  background-color: var(--color-accent-yellow-light);
+  border-color: var(--color-accent-yellow);
+}
+
+.alert-hand-error {
+  background-color: var(--color-accent-red-light);
+  border-color: var(--color-accent-red);
+}
+
+/* 标签云项 - 手绘风格 */
+.tag-hand {
+  display: inline-block;
+  font-family: var(--font-handwriting-casual);
+  background-color: var(--color-paper-secondary);
+  color: var(--color-ink-primary);
+  padding: 0.25rem 0.75rem;
+  margin: 0.25rem;
+  border: 1px solid var(--color-ink-secondary);
+  /* 每个标签略微不同的边框 */
+  border-radius: calc(8px + (3px * var(--random, 1)));
+  /* 每个标签略微不同的旋转角度 */
+  transform: rotate(calc(-1deg + (var(--random, 1) * 2deg)));
+  transition: all 0.2s ease;
+}
+
+.tag-hand:hover {
+  background-color: var(--color-accent-blue-light);
+  transform: rotate(0) scale(1.05);
+}
+
+/* 表格 - 手绘风格 */
+.table-hand {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: var(--font-handwriting-body);
+}
+
+.table-hand th {
+  font-family: var(--font-handwriting-casual);
+  padding: 0.75rem 1rem;
+  background-color: var(--color-paper-tertiary);
+  /* 手绘边框 */
+  border-bottom: 2px solid var(--color-ink-primary);
+  text-align: left;
+}
+
+.table-hand td {
+  padding: 0.75rem 1rem;
+  /* 浅色手绘边框 */
+  border-bottom: 1px dashed var(--color-ink-light);
+}
+
+.table-hand tr:last-child td {
+  border-bottom: none;
+}
+
+.table-hand tr:nth-child(odd) {
+  background-color: var(--color-paper-secondary);
+}

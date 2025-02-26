@@ -1,0 +1,168 @@
+/* 
+ * 手绘风格博客字体系统
+ * 使用手写风格字体，打造手绘感觉
+ */
+
+/* 导入Google字体 */
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
+:root {
+  /* 字体家族 */
+  --font-handwriting-primary: "Caveat", cursive; /* 主要手写字体，用于标题 */
+  --font-handwriting-secondary: "Architects Daughter", cursive; /* 次要手写字体，用于强调 */
+  --font-handwriting-casual: "Patrick Hand", cursive; /* 休闲手写字体，用于导航和按钮 */
+  --font-handwriting-body: "Comic Neue", cursive; /* 正文手写字体，更易读 */
+
+  /* 字体大小 - 手写风格通常需要稍大的字号以保证可读性 */
+  --font-size-xs: 0.875rem; /* 14px */
+  --font-size-sm: 1rem; /* 16px */
+  --font-size-md: 1.125rem; /* 18px */
+  --font-size-lg: 1.25rem; /* 20px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-2xl: 1.875rem; /* 30px */
+  --font-size-3xl: 2.25rem; /* 36px */
+  --font-size-4xl: 3rem; /* 48px */
+
+  /* 字体粗细 */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* 行高 - 手写风格通常需要更大的行高 */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  --line-height-loose: 2;
+
+  /* 字间距 - 手写风格通常字间距较大 */
+  --letter-spacing-tighter: -0.05em;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+}
+
+/* 定义通用文本样式 */
+.text-handwritten {
+  font-family: var(--font-handwriting-body);
+  color: var(--color-ink-primary);
+  line-height: var(--line-height-normal);
+}
+
+.heading-handwritten {
+  font-family: var(--font-handwriting-primary);
+  color: var(--color-ink-primary);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.subheading-handwritten {
+  font-family: var(--font-handwriting-secondary);
+  color: var(--color-ink-secondary);
+  line-height: var(--line-height-normal);
+}
+
+.casual-handwritten {
+  font-family: var(--font-handwriting-casual);
+  color: var(--color-ink-primary);
+  line-height: var(--line-height-normal);
+}
+
+/* 特定标题尺寸 */
+h1,
+.h1 {
+  @apply heading-handwritten;
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  /* 稍微倾斜，模拟手写不规则性 */
+  transform: rotate(-1deg);
+  margin-bottom: 1.5rem;
+}
+
+h2,
+.h2 {
+  @apply heading-handwritten;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  /* 稍微倾斜反方向 */
+  transform: rotate(0.5deg);
+  margin-bottom: 1.25rem;
+}
+
+h3,
+.h3 {
+  @apply heading-handwritten;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 1rem;
+}
+
+h4,
+.h4 {
+  @apply heading-handwritten;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 0.75rem;
+}
+
+h5,
+.h5 {
+  @apply subheading-handwritten;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-normal);
+  margin-bottom: 0.5rem;
+}
+
+h6,
+.h6 {
+  @apply subheading-handwritten;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-normal);
+  margin-bottom: 0.5rem;
+}
+
+/* 段落文本 */
+p,
+.paragraph {
+  @apply text-handwritten;
+  font-size: var(--font-size-md);
+  margin-bottom: 1rem;
+  /* 稍微不规则的行高，增加手写感 */
+  line-height: var(--line-height-relaxed);
+}
+
+/* 小文本 */
+small,
+.small {
+  @apply text-handwritten;
+  font-size: var(--font-size-sm);
+  color: var(--color-ink-light);
+}
+
+/* 引用块 - 特殊手写风格 */
+blockquote,
+.blockquote {
+  @apply casual-handwritten;
+  font-size: var(--font-size-lg);
+  font-style: italic;
+  border-left: 3px solid var(--color-ink-light);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+/* 引用块前的装饰引号 */
+blockquote:before,
+.blockquote:before {
+  content: '"';
+  font-family: var(--font-handwriting-primary);
+  font-size: 3rem;
+  position: absolute;
+  left: -0.5rem;
+  top: -1rem;
+  color: var(--color-ink-light);
+  opacity: 0.3;
+}
