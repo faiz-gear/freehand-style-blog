@@ -172,9 +172,10 @@ Next.js通过提供强大的功能和简化的API，使React开发变得更加�
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = mockPostDetails[params.slug];
+  const { slug } = await params;
+  const post = mockPostDetails[slug];
 
   if (!post) {
     return {
@@ -189,8 +190,13 @@ export async function generateMetadata({
   };
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = mockPostDetails[params.slug];
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = mockPostDetails[slug];
 
   if (!post) {
     notFound();
@@ -263,12 +269,12 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <h3 className="pencil-line-animation mb-4 text-xl">继续阅读</h3>
           <div className="grid gap-4 md:grid-cols-2">
             {Object.entries(mockPostDetails)
-              .filter(([slug]) => slug !== params.slug)
+              .filter(([itemSlug]) => itemSlug !== slug)
               .slice(0, 2)
-              .map(([slug, relatedPost]) => (
+              .map(([itemSlug, relatedPost]) => (
                 <Link
-                  key={slug}
-                  href={`/blog/${slug}`}
+                  key={itemSlug}
+                  href={`/blog/${itemSlug}`}
                   className="border-ink-light hover:border-ink-primary hover:bg-paper-secondary group rounded border p-4 transition-all"
                 >
                   <h4 className="group-hover:text-accent-blue mb-2 transition-colors">
