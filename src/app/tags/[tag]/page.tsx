@@ -21,9 +21,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { tag: string };
+  params: Promise<{ tag: string }>;
 }) {
-  const { tag } = params;
+  const { tag } = await params;
   const decodedTag = decodeURIComponent(tag);
 
   return {
