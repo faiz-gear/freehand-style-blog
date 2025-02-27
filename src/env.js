@@ -11,6 +11,8 @@ export const env = createEnv({
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
+    NOTION_API_KEY: z.string(),
+    NOTION_BLOG_DATABASE_ID: z.string(),
   },
 
   /**
@@ -29,6 +31,8 @@ export const env = createEnv({
   runtimeEnv: {
     DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
+    NOTION_API_KEY: process.env.NOTION_API_KEY,
+    NOTION_BLOG_DATABASE_ID: process.env.NOTION_BLOG_DATABASE_ID,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**
