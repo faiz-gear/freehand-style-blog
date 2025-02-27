@@ -6,9 +6,30 @@ export default function HomePage() {
   return (
     <PageContainer>
       <PageHeader
-        title="欢迎来到我的手绘风格博客"
-        description="这是一个关于编程、设计与生活的手绘风格博客，记录我的学习和思考。"
+        title="欢迎来到Lyle的博客"
+        description="这是一个关于编程、设计与生活的博客，记录我的学习和思考。"
       />
+
+      <section className="mb-12 mt-8">
+        <div className="border-ink-primary bg-paper-secondary rotate-hand-slight-right rounded-lg border-2 border-dashed p-6">
+          <h2 className="pencil-line-animation mb-4">嗨 👋, 我是 Lyle Lu</h2>
+          <div className="text-ink-secondary space-y-4">
+            <p>
+              我是一名<strong>Web开发者👨🏻‍💻</strong>
+              ，喜欢使用各种实用的计算机软件并构建美观的网站。
+            </p>
+            <p>
+              我曾经梦想成为一名医生，但现实使我不得不学习一门技术💻。值得骄傲的是，我可以成功地使用CSS居中一个元素😋。
+            </p>
+            <p>
+              目前，我是制造业的一名前端工程师。大学主修电子商务，但我很幸运选择了成为一名程序员，因为它让我能够不断接触新事物和新技术，感受互联网技术的魅力。
+            </p>
+            <p className="font-handwriting-casual text-accent-blue-dark text-lg">
+              幸运的是，我认为我正走在一条我热爱的职业道路上 ❤️
+            </p>
+          </div>
+        </div>
+      </section>
 
       <section className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         <FeaturedCard

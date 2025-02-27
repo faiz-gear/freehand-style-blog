@@ -15,21 +15,21 @@ export default function Footer() {
             <ul className="flex space-x-4">
               <li>
                 <SocialLink
-                  href="https://github.com"
+                  href="https://github.com/faiz-gear"
                   icon="github"
                   label="GitHub"
                 />
               </li>
               <li>
                 <SocialLink
-                  href="https://twitter.com"
+                  href="https://x.com/luyao9637"
                   icon="twitter"
                   label="Twitter"
                 />
               </li>
               <li>
                 <SocialLink
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/lu-lyle-9789332a3/"
                   icon="linkedin"
                   label="LinkedIn"
                 />
@@ -41,7 +41,7 @@ export default function Footer() {
         <div className="divider-hand my-4"></div>
 
         <p className="text-ink-light font-handwriting-body rotate-hand-slight-right text-center text-sm">
-          用 Next.js 搭建 | 手绘风格主题 |{" "}
+          用 Next.js 搭建 | Lyle的随笔涂鸦 |{" "}
           <a
             href="/contact"
             className="hover:text-accent-blue transition-colors"

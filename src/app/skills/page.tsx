@@ -3,7 +3,7 @@ import PageHeader from "~/components/shared/PageHeader";
 
 export const metadata = {
   title: "技能 | 手绘风格博客",
-  description: "我的技术技能和专业领域展示",
+  description: "Lyle Lu的技术技能和专业领域展示",
 };
 
 export default function SkillsPage() {
@@ -11,33 +11,43 @@ export default function SkillsPage() {
     <PageContainer>
       <PageHeader
         title="我的技能"
-        description="这里展示了我的技术栈和专业领域，以及我在各个方面的能力水平。"
+        description="这里展示了我的技术栈和专业领域，正在努力乘上AI时代的快车"
       />
 
       <div className="mb-12">
         <h2 className="pencil-line-animation mb-6">前端开发</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <SkillCard
-            name="React & Next.js"
-            level={90}
-            description="构建现代化、高性能的用户界面和Web应用"
+            name="HTML5 & CSS3"
+            description="构建现代化、语义化的网页结构和样式"
             className="rotate-hand-slight-left"
           />
           <SkillCard
-            name="TypeScript"
-            level={85}
-            description="使用静态类型增强代码质量和开发体验"
+            name="JavaScript"
+            description="使用现代JavaScript开发交互式网页应用"
             className="rotate-hand-slight-right"
           />
           <SkillCard
-            name="CSS & TailwindCSS"
-            level={95}
-            description="创建响应式、美观的用户界面和动画效果"
+            name="TypeScript"
+            description="使用静态类型增强代码质量和开发体验"
           />
           <SkillCard
-            name="React Native"
-            level={70}
-            description="开发跨平台移动应用程序"
+            name="React"
+            description="构建高效、可复用的用户界面组件"
+          />
+          <SkillCard
+            name="Vue.js"
+            description="开发渐进式JavaScript框架应用"
+            className="rotate-hand-slight-left"
+          />
+          <SkillCard
+            name="Three.js"
+            description="创建3D图形和动画效果"
+            className="rotate-hand-slight-right"
+          />
+          <SkillCard
+            name="Next.js"
+            description="构建高性能的React应用和静态网站"
           />
         </div>
       </div>
@@ -46,84 +56,89 @@ export default function SkillsPage() {
         <h2 className="pencil-line-animation mb-6">后端开发</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <SkillCard
-            name="Node.js"
-            level={80}
+            name="NestJS"
             description="构建高效的服务器端应用和API"
             className="rotate-hand-slight-right"
           />
           <SkillCard
-            name="数据库设计"
-            level={75}
-            description="设计和优化关系型及NoSQL数据库"
+            name="MySQL"
+            description="设计和优化关系型数据库"
             className="rotate-hand-slight-left"
           />
           <SkillCard
-            name="RESTful API"
-            level={85}
-            description="设计和实现符合REST规范的API"
+            name="MongoDB"
+            description="使用非关系型数据库"
+            className="rotate-hand-slight-left"
           />
           <SkillCard
-            name="GraphQL"
-            level={70}
-            description="构建灵活的数据查询和操作API"
+            name="Redis"
+            description="使用缓存提升性能"
+            className="rotate-hand-slight-right"
+          />
+          <SkillCard
+            name="Prisma"
+            description="ORM快速构建数据库模型"
+            className="rotate-hand-slight-right"
+          />
+          <SkillCard
+            name="Zod"
+            description="构建安全的数据验证"
+            className="rotate-hand-slight-left"
+          />
+          <SkillCard
+            name="RxJS"
+            description="响应式编程"
+            className="rotate-hand-slight-left"
           />
         </div>
       </div>
 
       <div className="mb-12">
-        <h2 className="pencil-line-animation mb-6">设计与创意</h2>
+        <h2 className="pencil-line-animation mb-6">AI与新技术</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <SkillCard
-            name="UI/UX设计"
-            level={80}
-            description="设计用户友好、美观的界面和交互体验"
+            name="人工智能 (AI)"
+            description="探索和应用人工智能技术"
             className="rotate-hand-slight-left"
           />
           <SkillCard
-            name="手绘插画"
-            level={85}
-            description="创作手绘风格的图形和插画"
+            name="大语言模型 (LLM)"
+            description="利用大语言模型开发智能应用"
             className="rotate-hand-slight-right"
           />
           <SkillCard
-            name="动画与交互"
-            level={75}
-            description="设计和实现网页动画和交互效果"
+            name="检索增强生成 (RAG)"
+            description="实现基于检索的生成式AI应用"
           />
           <SkillCard
-            name="创意概念"
-            level={90}
-            description="构思创新的项目和设计理念"
+            name="智能代理 (Agent)"
+            description="开发自主智能代理系统"
           />
         </div>
       </div>
 
       <div className="border-ink-primary bg-paper-secondary rotate-hand-slight-right mb-12 rounded-lg border-2 border-dashed p-6">
-        <h2 className="pencil-line-animation mb-4">其他技能</h2>
+        <h2 className="pencil-line-animation mb-4">开发工具与技能</h2>
         <ul className="grid gap-4 md:grid-cols-2">
           <li className="flex items-start">
             <span className="text-accent-blue mr-2 text-xl">•</span>
-            <span className="text-ink-secondary">版本控制 (Git)</span>
+            <span className="text-ink-secondary">Git版本控制</span>
           </li>
           <li className="flex items-start">
             <span className="text-accent-blue mr-2 text-xl">•</span>
-            <span className="text-ink-secondary">CI/CD 流程</span>
+            <span className="text-ink-secondary">Docker容器化</span>
           </li>
           <li className="flex items-start">
             <span className="text-accent-blue mr-2 text-xl">•</span>
-            <span className="text-ink-secondary">测试与调试</span>
+            <span className="text-ink-secondary">前端性能优化</span>
           </li>
           <li className="flex items-start">
             <span className="text-accent-blue mr-2 text-xl">•</span>
-            <span className="text-ink-secondary">性能优化</span>
+            <span className="text-ink-secondary">响应式设计</span>
           </li>
           <li className="flex items-start">
             <span className="text-accent-blue mr-2 text-xl">•</span>
-            <span className="text-ink-secondary">技术文档撰写</span>
-          </li>
-          <li className="flex items-start">
-            <span className="text-accent-blue mr-2 text-xl">•</span>
-            <span className="text-ink-secondary">项目管理</span>
+            <span className="text-ink-secondary">Web应用架构设计</span>
           </li>
         </ul>
       </div>
@@ -133,40 +148,17 @@ export default function SkillsPage() {
 
 interface SkillCardProps {
   name: string;
-  level: number;
   description: string;
   className?: string;
 }
 
-function SkillCard({
-  name,
-  level,
-  description,
-  className = "",
-}: SkillCardProps) {
-  // 确保level在0-100之间
-  const normalizedLevel = Math.min(100, Math.max(0, level));
-
+function SkillCard({ name, description, className = "" }: SkillCardProps) {
   return (
     <div
       className={`border-ink-primary bg-paper-primary shadow-hand rounded-lg border-2 p-5 transition-transform hover:scale-[1.02] ${className}`}
     >
       <h3 className="mb-2 text-xl">{name}</h3>
-      <p className="text-ink-secondary mb-4 text-sm">{description}</p>
-      <div className="mb-1 flex justify-between">
-        <span className="text-ink-secondary font-handwriting-casual text-sm">
-          技能熟练度
-        </span>
-        <span className="text-ink-secondary font-handwriting-casual text-sm">
-          {normalizedLevel}%
-        </span>
-      </div>
-      <div className="border-ink-light h-4 overflow-hidden rounded border">
-        <div
-          className="bg-accent-blue h-full rounded"
-          style={{ width: `${normalizedLevel}%` }}
-        ></div>
-      </div>
+      <p className="text-ink-secondary text-sm">{description}</p>
     </div>
   );
 }

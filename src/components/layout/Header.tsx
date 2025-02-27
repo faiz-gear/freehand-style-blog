@@ -15,7 +15,7 @@ export default function Header() {
             className="font-handwriting-primary rotate-hand-slight-left text-3xl"
           >
             <span className="inline-block transform transition-transform hover:scale-110">
-              手绘风格
+              Lyle的随笔涂鸦：思想的自由表达
             </span>
           </Link>
         </div>

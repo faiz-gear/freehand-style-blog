@@ -100,7 +100,7 @@ export default function ContactPage() {
                 <span className="text-ink-accent mr-3 text-xl">✉</span>
                 <div>
                   <p className="text-ink-primary font-medium">电子邮箱</p>
-                  <p className="text-ink-secondary">example@email.com</p>
+                  <p className="text-ink-secondary">luyao9637@gmail.com</p>
                 </div>
               </li>
 

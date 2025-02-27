@@ -4,8 +4,8 @@ import { type Metadata } from "next";
 import MainLayout from "~/components/layout/MainLayout";
 
 export const metadata: Metadata = {
-  title: "手绘风格博客",
-  description: "一个用手绘风格讲述编程与生活的个人网站",
+  title: "Lyle的博客",
+  description: "Lyle的随笔涂鸦：思想的自由表达",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
