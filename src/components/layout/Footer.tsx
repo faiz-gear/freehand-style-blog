@@ -42,7 +42,10 @@ export default function Footer() {
 
         <p className="text-ink-light font-handwriting-body rotate-hand-slight-right text-center text-sm">
           用 Next.js 搭建 | 手绘风格主题 |{" "}
-          <a href="#" className="hover:text-accent-blue transition-colors">
+          <a
+            href="/contact"
+            className="hover:text-accent-blue transition-colors"
+          >
             联系我
           </a>
         </p>
