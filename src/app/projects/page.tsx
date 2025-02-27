@@ -154,7 +154,7 @@ function ProjectCard({
   category,
   description,
   technologies,
-  imageUrl,
+  // imageUrl,
   demoUrl,
   repoUrl,
   className = "",

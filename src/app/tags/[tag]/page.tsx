@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import PageContainer from "~/components/shared/PageContainer";
 import PageHeader from "~/components/shared/PageHeader";
 import { getAllTags, getBlogPostsByTag } from "~/lib/notion/blog";
-import type { BlogPostListItem } from "~/types/blog";
 
 // 设置页面为动态渲染，确保每次访问都获取最新数据
 export const dynamic = "force-dynamic";

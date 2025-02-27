@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import PageContainer from "~/components/shared/PageContainer";
 import { getBlogPostBySlug, getAllPublishedBlogPosts } from "~/lib/notion/blog";
@@ -52,7 +53,7 @@ export default async function BlogPostPage({
 
   // 格式化日期
   const formattedDate = post.date
-    ? new Date(post.date as string).toLocaleDateString("zh-CN", {
+    ? new Date(post.date).toLocaleDateString("zh-CN", {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -112,7 +113,7 @@ export default async function BlogPostPage({
         {/* 封面图片 */}
         {post.coverImage ? (
           <div className="mb-8">
-            <img
+            <Image
               src={post.coverImage}
               alt={post.title}
               className="border-ink-light mx-auto rounded-lg border object-cover"
