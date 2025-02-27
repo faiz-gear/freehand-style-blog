@@ -78,8 +78,25 @@ h1,
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-bold);
   /* 稍微倾斜，模拟手写不规则性 */
-  transform: rotate(-1deg);
+  transform: rotate(-0.5deg);
   margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* 添加清新蓝色波浪线下划线 */
+h1::after,
+.h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 6px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='6' viewBox='0 0 200 6' fill='none'%3E%3Cpath d='M0 3C10 1 15 5 25 3C35 1 40 5 50 3C60 1 65 5 75 3C85 1 90 5 100 3C110 1 115 5 125 3C135 1 140 5 150 3C160 1 165 5 175 3C185 1 190 5 200 3' stroke='%237dc0d9' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 200px 6px;
+  opacity: 0.9;
 }
 
 h2,
@@ -88,8 +105,25 @@ h2,
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
   /* 稍微倾斜反方向 */
-  transform: rotate(0.5deg);
+  transform: rotate(0.25deg);
   margin-bottom: 1.25rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* 添加较细的清新蓝色波浪线下划线 */
+h2::after,
+.h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 4px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='4' viewBox='0 0 160 4' fill='none'%3E%3Cpath d='M0 2C8 1 12 3 20 2C28 1 32 3 40 2C48 1 52 3 60 2C68 1 72 3 80 2C88 1 92 3 100 2C108 1 112 3 120 2C128 1 132 3 140 2C148 1 152 3 160 2' stroke='%23a8d8e8' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 160px 4px;
+  opacity: 0.8;
 }
 
 h3,
@@ -98,6 +132,23 @@ h3,
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-medium);
   margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* 添加最细的清新蓝色波浪线下划线 */
+h3::after,
+.h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 3px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='3' viewBox='0 0 120 3' fill='none'%3E%3Cpath d='M0 1.5C6 1 9 2 15 1.5C21 1 24 2 30 1.5C36 1 39 2 45 1.5C51 1 54 2 60 1.5C66 1 69 2 75 1.5C81 1 84 2 90 1.5C96 1 99 2 105 1.5C111 1 114 2 120 1.5' stroke='%23a8d8e8' stroke-width='1' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 120px 3px;
+  opacity: 0.7;
 }
 
 h4,
