@@ -32,8 +32,12 @@ export async function generateMetadata({
   };
 }
 
-export default async function TagPage({ params }: { params: { tag: string } }) {
-  const { tag } = params;
+export default async function TagPage({
+  params,
+}: {
+  params: Promise<{ tag: string }>;
+}) {
+  const { tag } = await params;
   const decodedTag = decodeURIComponent(tag);
 
   // 获取所有标签
