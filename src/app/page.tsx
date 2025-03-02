@@ -1,8 +1,17 @@
 import Link from "next/link";
 import PageContainer from "~/components/shared/PageContainer";
 import PageHeader from "~/components/shared/PageHeader";
+import { getAllPublishedBlogPosts } from "~/lib/notion/blog";
 
-export default function HomePage() {
+// 设置页面缓存策略，每24小时重新验证一次
+export const dynamic = "force-static";
+export const revalidate = 86400; // 24小时 = 86400秒
+
+export default async function HomePage() {
+  // 获取最新的3篇博客文章
+  const latestPosts = await getAllPublishedBlogPosts();
+  const recentPosts = latestPosts.slice(0, 4);
+
   return (
     <PageContainer>
       <PageHeader
@@ -64,9 +73,15 @@ export default function HomePage() {
         <div className="divider-hand mb-8"></div>
 
         <div className="grid gap-6 md:grid-cols-2">
-          <p className="text-ink-secondary mt-12 text-center italic">
-            博客文章即将上线，敬请期待...
-          </p>
+          {recentPosts.length > 0 ? (
+            recentPosts.map((post) => (
+              <HomePostCard key={post.id} post={post} />
+            ))
+          ) : (
+            <p className="text-ink-secondary mt-12 text-center italic">
+              博客文章即将上线，敬请期待...
+            </p>
+          )}
         </div>
       </section>
     </PageContainer>
@@ -95,5 +110,65 @@ function FeaturedCard({
         <p className="text-ink-secondary">{description}</p>
       </div>
     </Link>
+  );
+}
+
+interface HomePostCardProps {
+  post: {
+    id: string;
+    slug: string;
+    title: string;
+    date: string;
+    summary: string;
+    tags: string[];
+  };
+}
+
+function HomePostCard({ post }: HomePostCardProps) {
+  // 格式化日期
+  const formattedDate = new Date(post.date).toLocaleDateString("zh-CN", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  return (
+    <article className="border-ink-light hover:border-ink-primary hover:shadow-hand rounded-lg border p-5 transition-all">
+      <Link href={`/blog/${post.slug}`} className="group">
+        <h3 className="pencil-line-animation group-hover:text-accent-blue mb-2 text-xl transition-colors">
+          {post.title}
+        </h3>
+      </Link>
+
+      <div className="text-ink-secondary mb-3 text-sm">
+        <span>{formattedDate}</span>
+      </div>
+
+      <p className="text-ink-secondary mb-3 line-clamp-2 text-sm">
+        {post.summary}
+      </p>
+
+      <div className="mb-3 flex flex-wrap gap-1">
+        {post.tags.slice(0, 3).map((tag) => (
+          <Link key={tag} href={`/tags/${encodeURIComponent(tag)}`}>
+            <span className="bg-paper-tertiary hover:bg-paper-primary text-ink-secondary rounded-lg px-2 py-0.5 text-xs transition-colors">
+              {tag}
+            </span>
+          </Link>
+        ))}
+        {post.tags.length > 3 && (
+          <span className="text-ink-tertiary text-xs">
+            +{post.tags.length - 3}
+          </span>
+        )}
+      </div>
+
+      <Link
+        href={`/blog/${post.slug}`}
+        className="text-accent-blue hover:text-accent-blue-dark font-handwriting-casual inline-block text-sm transition-colors"
+      >
+        阅读全文 →
+      </Link>
+    </article>
   );
 }
