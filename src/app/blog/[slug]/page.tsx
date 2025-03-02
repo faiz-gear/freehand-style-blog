@@ -1,13 +1,13 @@
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import PageContainer from "~/components/shared/PageContainer";
 import { getBlogPostBySlug, getAllPublishedBlogPosts } from "~/lib/notion/blog";
 import { renderNotionBlocks } from "~/lib/notion/renderer";
+import OptimizedImage from "~/components/ui/OptimizedImage";
 
-// 设置页面为动态渲染，确保每次访问都获取最新数据
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+// 设置页面缓存策略，每24小时重新验证一次
+export const dynamic = "force-static";
+export const revalidate = 86400; // 24小时 = 86400秒
 
 // 生成静态路径
 export async function generateStaticParams() {
@@ -113,16 +113,27 @@ export default async function BlogPostPage({
         {/* 封面图片 */}
         {post.coverImage ? (
           <div className="mb-8">
-            <Image
+            <OptimizedImage
               src={post.coverImage}
               alt={post.title}
               className="border-ink-light mx-auto rounded-lg border object-cover"
               style={{ maxHeight: "400px", width: "100%" }}
+              width={1200}
+              height={630}
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              loading="eager"
+              quality={85}
+              fallbackSrc="/images/placeholders/blog-placeholder.svg"
             />
           </div>
         ) : (
           <div className="bg-paper-secondary mb-8 h-48 rounded-lg border p-4 text-center italic text-gray-500">
-            [无封面图片]
+            <img
+              src="/images/placeholders/blog-placeholder.svg"
+              alt="无封面图片"
+              className="mx-auto h-full max-h-40 object-contain"
+            />
           </div>
         )}
 

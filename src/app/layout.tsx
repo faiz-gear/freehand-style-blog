@@ -14,6 +14,22 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="zh-CN">
+      <head>
+        {/* 预取关键页面 */}
+        <link rel="prefetch" href="/" as="document" />
+        <link rel="prefetch" href="/blog" as="document" />
+        <link rel="prefetch" href="/about" as="document" />
+        <link rel="prefetch" href="/projects" as="document" />
+        <link rel="prefetch" href="/skills" as="document" />
+        <link rel="prefetch" href="/contact" as="document" />
+
+        {/* DNS预解析 */}
+        <link rel="dns-prefetch" href="https://www.notion.so" />
+        <link
+          rel="dns-prefetch"
+          href="https://prod-files-secure.s3.us-west-2.amazonaws.com"
+        />
+      </head>
       <body>
         <MainLayout>{children}</MainLayout>
       </body>

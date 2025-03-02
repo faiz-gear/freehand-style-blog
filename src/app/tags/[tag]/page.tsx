@@ -4,9 +4,9 @@ import PageContainer from "~/components/shared/PageContainer";
 import PageHeader from "~/components/shared/PageHeader";
 import { getAllTags, getBlogPostsByTag } from "~/lib/notion/blog";
 
-// 设置页面为动态渲染，确保每次访问都获取最新数据
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+// 设置页面缓存策略，每24小时重新验证一次
+export const dynamic = "force-static";
+export const revalidate = 86400; // 24小时 = 86400秒
 
 // 生成静态路径
 export async function generateStaticParams() {

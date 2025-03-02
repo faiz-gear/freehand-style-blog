@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PageContainer from "~/components/shared/PageContainer";
 import PageHeader from "~/components/shared/PageHeader";
+import OptimizedImage from "~/components/ui/OptimizedImage";
 
 export const metadata = {
   title: "项目 | 手绘风格博客",
@@ -154,37 +155,37 @@ function ProjectCard({
   category,
   description,
   technologies,
-  // imageUrl,
+  imageUrl,
   demoUrl,
   repoUrl,
   className = "",
 }: ProjectCardProps) {
-  // 临时的图片占位符样式
-  const imagePlaceholderStyle = {
-    backgroundColor: "#e6e0d4",
-    height: "180px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: "6px 6px 0 0",
-    marginBottom: "1rem",
-    color: "#777",
-    fontStyle: "italic",
-  };
-
   return (
     <div
-      className={`border-ink-primary shadow-hand hover:shadow-hand-lg overflow-hidden rounded-lg border-2 transition-all hover:-translate-y-1 ${className}`}
+      className={`border-ink-primary shadow-hand hover:shadow-hand-lg overflow-hidden rounded-lg border-2 transition-all duration-300 hover:-translate-y-2 ${className}`}
     >
-      {/* 图片区域 (暂时使用占位符) */}
-      <div style={imagePlaceholderStyle}>{title} 项目截图</div>
+      {/* 图片区域 */}
+      <div className="relative h-[180px] w-full overflow-hidden">
+        <OptimizedImage
+          src={imageUrl}
+          alt={`${title} 项目截图`}
+          className="rounded-t-lg object-cover transition-transform duration-500 hover:scale-110"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          loading="lazy"
+          quality={80}
+          fallbackSrc="/images/placeholders/project-placeholder.svg"
+        />
+      </div>
 
       <div className="p-5">
         <div className="mb-3 flex items-center justify-between">
           <h3 className="pencil-line-animation font-handwriting-primary text-xl">
             {title}
           </h3>
-          <span className="badge-hand">{category}</span>
+          <span className="badge-hand transform transition-transform hover:rotate-3 hover:scale-110">
+            {category}
+          </span>
         </div>
 
         <p className="text-ink-secondary mb-4 text-sm">{description}</p>
@@ -195,7 +196,7 @@ function ProjectCard({
             {technologies.map((tech, index) => (
               <span
                 key={index}
-                className="text-ink-light bg-paper-secondary rounded px-2 py-1 text-xs"
+                className="text-ink-light bg-paper-secondary rounded px-2 py-1 text-xs transition-transform hover:scale-105"
               >
                 {tech}
               </span>
@@ -205,13 +206,19 @@ function ProjectCard({
 
         <div className="mt-4 flex gap-3">
           {demoUrl && (
-            <Link href={demoUrl} className="btn-hand px-3 py-1 text-xs">
+            <Link
+              href={demoUrl}
+              className="btn-hand px-3 py-1 text-xs transition-transform hover:scale-105"
+            >
               查看演示
             </Link>
           )}
 
           {repoUrl && (
-            <Link href={repoUrl} className="btn-hand px-3 py-1 text-xs">
+            <Link
+              href={repoUrl}
+              className="btn-hand px-3 py-1 text-xs transition-transform hover:scale-105"
+            >
               源代码
             </Link>
           )}

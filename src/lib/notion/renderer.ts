@@ -247,11 +247,30 @@ function renderImage(block: BlockObjectResponse): string {
 
   return `
     <figure class="my-6">
-      <img 
-        src="${imageUrl}" 
-        alt="${caption || "图片"}" 
-        class="border-ink-light mx-auto rounded-lg border"
-      />
+      <div class="relative">
+        <img 
+          src="${imageUrl}" 
+          alt="${caption || "图片"}" 
+          class="border-ink-light mx-auto rounded-lg border transition-opacity duration-300"
+          loading="lazy"
+          decoding="async"
+          width="800"
+          height="600"
+          style="max-width: 100%; height: auto; opacity: 0.6;"
+          onload="this.style.opacity='1'"
+          onerror="this.onerror=null; this.src='/images/placeholders/image-placeholder.svg'; this.style.opacity='1'"
+        />
+        <noscript>
+          <img 
+            src="${imageUrl}" 
+            alt="${caption || "图片"}" 
+            class="border-ink-light mx-auto rounded-lg border"
+            width="800"
+            height="600"
+            style="max-width: 100%; height: auto;"
+          />
+        </noscript>
+      </div>
       ${caption ? `<figcaption class="text-ink-tertiary text-center mt-2 text-sm">${caption}</figcaption>` : ""}
     </figure>
   `;
