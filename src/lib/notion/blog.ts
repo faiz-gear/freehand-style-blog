@@ -232,13 +232,13 @@ export async function getBlogPostsByTag(
       filter: {
         and: [
           {
-            property: "Status",
+            property: "status",
             select: {
               equals: "Published",
             },
           },
           {
-            property: "Tags",
+            property: "tags",
             multi_select: {
               contains: tag,
             },
@@ -247,7 +247,7 @@ export async function getBlogPostsByTag(
       },
       sorts: [
         {
-          property: "PublishedAt",
+          property: "date",
           direction: "descending",
         },
       ],
