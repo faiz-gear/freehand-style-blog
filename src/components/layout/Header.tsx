@@ -47,14 +47,42 @@ export default function Header() {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
-          <span className="bg-ink-primary mb-1 block h-0.5 w-6 rotate-0 transform transition-transform"></span>
-          <span className="bg-ink-primary mb-1 block h-0.5 w-6"></span>
-          <span className="bg-ink-primary block h-0.5 w-6 rotate-0 transform transition-transform"></span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-ink-primary"
+          >
+            {isMenuOpen ? (
+              <>
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </>
+            ) : (
+              <>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </>
+            )}
+          </svg>
         </button>
 
         {/* 移动导航菜单 */}
         {isMenuOpen && (
-          <div className="bg-paper-primary border-hand-thin shadow-hand absolute left-0 right-0 top-full z-50 p-4 md:hidden">
+          <div
+            className="bg-paper-primary border-hand-thin shadow-hand absolute left-0 right-0 top-full z-50 p-4 md:hidden"
+            style={{
+              backgroundColor: "var(--color-paper-primary)",
+              backdropFilter: "blur(8px)",
+            }}
+          >
             <ul className="flex flex-col space-y-4">
               <li>
                 <NavLink href="/" onClick={() => setIsMenuOpen(false)}>

@@ -1,5 +1,6 @@
 import { type Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
+import typography from "@tailwindcss/typography";
 
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
@@ -18,7 +19,27 @@ export default {
           "100%": { width: "0%", marginLeft: "100%" },
         },
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            img: {
+              maxWidth: "100%",
+              height: "auto",
+              marginTop: "1.5em",
+              marginBottom: "1.5em",
+            },
+            figure: {
+              marginTop: "1.5em",
+              marginBottom: "1.5em",
+            },
+            "figure img": {
+              marginTop: "0",
+              marginBottom: "0",
+            },
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [typography],
 } satisfies Config;

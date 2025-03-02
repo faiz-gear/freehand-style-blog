@@ -246,12 +246,12 @@ function renderImage(block: BlockObjectResponse): string {
     : "";
 
   return `
-    <figure class="my-6">
-      <div class="relative">
+    <figure class="my-6 w-full overflow-hidden">
+      <div class="relative w-full">
         <img 
           src="${imageUrl}" 
           alt="${caption || "图片"}" 
-          class="border-ink-light mx-auto rounded-lg border transition-opacity duration-300"
+          class="border-ink-light mx-auto rounded-lg border transition-opacity duration-300 max-w-full w-auto"
           loading="lazy"
           decoding="async"
           width="800"
@@ -264,7 +264,7 @@ function renderImage(block: BlockObjectResponse): string {
           <img 
             src="${imageUrl}" 
             alt="${caption || "图片"}" 
-            class="border-ink-light mx-auto rounded-lg border"
+            class="border-ink-light mx-auto rounded-lg border max-w-full w-auto"
             width="800"
             height="600"
             style="max-width: 100%; height: auto;"
