@@ -34,7 +34,7 @@ export default function OptimizedImage({
       {/* 加载中的骨架屏 */}
       {isLoading && (
         <div className="bg-paper-secondary absolute inset-0 flex items-center justify-center">
-          <img
+          <Image
             src="/images/placeholders/image-placeholder.svg"
             alt="加载中"
             className="h-full w-full object-cover opacity-70"

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import PageContainer from "~/components/shared/PageContainer";
 import { getBlogPostBySlug, getAllPublishedBlogPosts } from "~/lib/notion/blog";
@@ -227,7 +228,7 @@ export default async function BlogPostPage({
           </div>
         ) : (
           <div className="bg-paper-secondary mb-8 h-48 rounded-lg border p-4 text-center italic text-gray-500">
-            <img
+            <Image
               src="/images/placeholders/blog-placeholder.svg"
               alt="无封面图片"
               className="mx-auto h-full max-h-40 object-contain"
