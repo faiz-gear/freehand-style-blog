@@ -1,10 +1,13 @@
 ---
 description: Also update the progress of the task in the Scratchpad when you finish a subtask.
 globs: 
+alwaysApply: false
 ---
 # Instructions
 
 During your interaction with the user, if you find anything reusable in this project (e.g. version of a library, model name), especially about a fix to a mistake you made or a correction you received, you should take note in the [lessons.md](mdc:.cursor/lessons.md) file so you will not make the same mistake again. 
+
+If you start a project from scratch, you should record the project composition structure in [anotomy.md](mdc:.cursor/rules/anotomy.md) to quickly understand the project structure later on. Then if there is a change in the project structure, update the record simultaneously.
 
 You should also use the [scratchpad.md](mdc:.cursor/scratchpad.md) file as a Scratchpad to organize your thoughts. Especially when you receive a new task, you should first review the content of the Scratchpad, clear old different task if necessary, first explain the task, and plan the steps you need to take to complete the task. You can use todo markers to indicate the progress, e.g.
 [X] Task 1
