@@ -2,10 +2,58 @@ import Link from "next/link";
 import PageContainer from "~/components/shared/PageContainer";
 import PageHeader from "~/components/shared/PageHeader";
 import OptimizedImage from "~/components/ui/OptimizedImage";
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiNotion,
+  SiReact,
+  SiFirebase,
+  SiMongodb,
+  SiNodedotjs,
+  SiRedux,
+  SiHtml5,
+  SiJavascript,
+  SiGreensock,
+  SiFigma,
+  SiVuedotjs,
+  SiExpress,
+  SiGooglemaps,
+  SiCapacitor,
+  SiElectron,
+  SiSqlite,
+} from "react-icons/si";
+import { DiJavascript } from "react-icons/di";
 
 export const metadata = {
   title: "项目 | 手绘风格博客",
   description: "我的项目作品集展示",
+};
+
+const TECH_ICONS: Record<string, React.ComponentType> = {
+  "Next.js": SiNextdotjs,
+  TypeScript: SiTypescript,
+  TailwindCSS: SiTailwindcss,
+  "Notion API": SiNotion,
+  React: SiReact,
+  "React Native": SiReact,
+  "Canvas API": DiJavascript,
+  WebGL: DiJavascript,
+  Firebase: SiFirebase,
+  Redux: SiRedux,
+  "Node.js": SiNodedotjs,
+  MongoDB: SiMongodb,
+  "HTML/CSS": SiHtml5,
+  JavaScript: SiJavascript,
+  GSAP: SiGreensock,
+  Figma: SiFigma,
+  "Vue.js": SiVuedotjs,
+  Express: SiExpress,
+  "Google Maps API": SiGooglemaps,
+  Capacitor: SiCapacitor,
+  Electron: SiElectron,
+  SQLite: SiSqlite,
+  "EPUB.js": DiJavascript,
 };
 
 export default function ProjectsPage() {
@@ -192,15 +240,20 @@ function ProjectCard({
 
         <div className="mb-4">
           <p className="text-ink-secondary mb-2 text-xs">使用技术:</p>
-          <div className="flex flex-wrap gap-1">
-            {technologies.map((tech, index) => (
-              <span
-                key={index}
-                className="text-ink-light bg-paper-secondary rounded px-2 py-1 text-xs transition-transform hover:scale-105"
-              >
-                {tech}
-              </span>
-            ))}
+          <div className="flex flex-wrap gap-2">
+            {technologies.map((tech, index) => {
+              const IconComponent = TECH_ICONS[tech] ?? DiJavascript;
+              return (
+                <span
+                  key={index}
+                  className="text-ink-primary bg-paper-secondary border-ink-light hover:bg-paper-primary flex items-center gap-1 rounded-full border px-3 py-1 text-xs transition-all hover:scale-105"
+                  title={tech}
+                >
+                  <IconComponent className="text-accent-primary text-base" />
+                  <span>{tech}</span>
+                </span>
+              );
+            })}
           </div>
         </div>
 
