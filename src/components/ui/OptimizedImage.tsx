@@ -38,6 +38,7 @@ export default function OptimizedImage({
             src="/images/placeholders/image-placeholder.svg"
             alt="加载中"
             className="h-full w-full object-cover opacity-70"
+            {...props}
           />
         </div>
       )}
